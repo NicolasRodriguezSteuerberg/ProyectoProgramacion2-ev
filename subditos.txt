@@ -1,0 +1,13 @@
+Iago, fuego, ofensivo, 22, 7, 7, 7, 1, 1
+Belen, viento, ofensivo, 22, 7, 7, 7, 1, 1
+Ronald, tierra, defensivo, 22, 7, 7, 7, 1, 1
+Zuuko, fuego, ofensivo, 20, 5, 5, 5, 1, 1
+Iroh, fuego, defensivo, 20, 5, 5, 5, 1, 1
+Azula, rayo, ofensivo, 20, 5, 5, 5, 1, 1
+McQueen, rayo, defensivo, 20, 5, 5, 5, 1, 1
+Aang, viento, ofensivo, 20, 5, 5, 5, 1, 1
+Appa, defensivo, defensivo, 20, 5, 5, 5, 1, 1
+Kiri, agua, ofensivo, 20, 5, 5, 5, 1, 1
+Katara, agua, defensivo, 20, 5, 5, 5, 1, 1
+BandidaCiega, tierra, ofensivo, 20, 5, 5, 5, 1, 1
+Momo, tierra, defensivo, 20, 5, 5, 5, 1, 1
