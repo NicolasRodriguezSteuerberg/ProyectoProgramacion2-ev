@@ -12,7 +12,7 @@ public class Personajes {
     int ataque;
     int defensa;
     int velocidad;
-    int resistenciaAtaque;
+    float resistenciaAtaque;
     int energia;
     String mensaje;
 
@@ -29,7 +29,7 @@ public class Personajes {
      * @param energia = para saber si puede usar el movimiento especial
      * @param mensaje = es el mensaje que utilizaremos en las clases batallas para que salga un mensaje del movimiento que hacen
      */
-    public Personajes(String nombre, String elemento, String tipo, int vida, int ataque, int defensa, int velocidad, int resistenciaAtaque, int energia, String mensaje) {
+    public Personajes(String nombre, String elemento, String tipo, int vida, int ataque, int defensa, int velocidad, float resistenciaAtaque, int energia, String mensaje) {
         this.nombre = nombre;
         this.elemento = elemento;
         this.tipo = tipo;
@@ -59,10 +59,11 @@ public class Personajes {
          * opcion = 2 -> movimiento especial
          * @return referencia, null si se defiende,si es evitar el daño(fuego) = 0, subir ataque(elctrico) = -1, desviar el ataque al atacante(viento) = -2, curar(agua) = -3, subir defensa(tierra) = -4
          */
+        resistenciaAtaque = 1;
         switch(opcion){
             case 0:
                 //JOptionPane.showMessageDialog(null, nombre + " ha usado atacar");
-                if(energia <3){
+                if(energia < 3){
                     energia++;
                 }
                 referencia = 6 * 25 * ataque;
@@ -70,20 +71,20 @@ public class Personajes {
                 break;
             case 1:
                 //JOptionPane.showMessageDialog(null, nombre + " se está defendiendo");
-                if(energia <3){
+                if(energia < 3){
                     energia++;
                 }
                 mensaje = nombre + " se está defendiendo";
+                resistenciaAtaque = 1.2f;
                 referencia = null;
                 break;
             case 2:
-                if(energia < 3 ){
+                if(energia < 3){
                     JOptionPane.showMessageDialog(null, "Energia insuficiente");
                     movimientos();
                 }
 
                 else {
-
                     if (elemento.equalsIgnoreCase("fuego")) {
                         if (tipo.equalsIgnoreCase("ofensivo")) {
                             referencia = 6 * 95 * ataque;
@@ -133,7 +134,7 @@ public class Personajes {
                             mensaje = nombre + " ha usado Colinas de Hierro";
                         }
                     }
-
+                    energia = 0;
                 }
                 break;
         }
@@ -197,7 +198,7 @@ public class Personajes {
         this.velocidad = velocidad;
     }
 
-    public int getResistenciaAtaque() {
+    public float getResistenciaAtaque() {
         return resistenciaAtaque;
     }
 
