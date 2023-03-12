@@ -21,6 +21,7 @@ public class Subditos extends Personajes{
         super(nombre, elemento, tipo, vida, ataque, defensa, velocidad, resistenciaAtaque, energia, mensaje);
         this.nivel = nivel;
     }
+    public Subditos(){}
     public void subirNivel(ArrayList<Personajes> lista){
         int aVida, aAtaque, aDefensa, aVelocidad;
         for (int i=0; i < lista.size(); i++){

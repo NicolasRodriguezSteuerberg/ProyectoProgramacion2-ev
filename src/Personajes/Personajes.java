@@ -41,6 +41,7 @@ public class Personajes {
         this.energia = energia;
         this.mensaje = mensaje;
     }
+    public Personajes(){};
     String [] opciones = {"Atacar","Defender","Movimiento especial"};
     public Integer movimientos(){
         Integer opcion = null;
