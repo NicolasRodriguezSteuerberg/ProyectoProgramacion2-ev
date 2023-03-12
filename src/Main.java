@@ -1,5 +1,4 @@
 import Datos.Random;
-import Datos.SacarScroll;
 import Historia.Inicio;
 import Personajes.*;
 

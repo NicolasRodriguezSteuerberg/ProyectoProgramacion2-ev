@@ -58,7 +58,7 @@ public class Personajes {
          * opcion = 0 -> atacar
          * opcion = 1 -> defender
          * opcion = 2 -> movimiento especial
-         * @return referencia, null si se defiende,si es evitar el daño(fuego) = 0, subir ataque(elctrico) = -1, desviar el ataque al atacante(viento) = -2, curar(agua) = -3, subir defensa(tierra) = -4
+         * @return referencia, 0 si se defiende, numero si ataca
          */
         resistenciaAtaque = 1;
         switch(opcion){
@@ -74,64 +74,37 @@ public class Personajes {
                     energia++;
                 }
                 mensaje = nombre + " se está defendiendo";
-                resistenciaAtaque = 1.2f;
-                referencia = null;
+                resistenciaAtaque = 1.5f;
+                referencia = 0;
                 break;
             case 2:
                 if(energia < 3){
                     JOptionPane.showMessageDialog(null, "Energia insuficiente");
                     movimientos();
-                }
-
-                else {
+                }else {
                     if (elemento.equalsIgnoreCase("fuego")) {
-                        if (tipo.equalsIgnoreCase("ofensivo")) {
                             referencia = 6 * 95 * ataque;
                             mensaje = nombre + " ha usado Furia de fuego";
-                        } else {
-                            referencia = 0;
-                            mensaje = nombre + " ha usado Llamas Ardientes";
-                        }
                     }
 
                     else if(elemento.equalsIgnoreCase("rayo")){
-                        if (tipo.equalsIgnoreCase("ofensivo")) {
                             referencia = 6 * 100 * ataque;
                             mensaje = nombre + " ha usado Rayo Fulminante";
-                        } else {
-                            referencia = -1;
-                            mensaje = nombre + " ha usado Alto Voltaje";
-                        }
                     }
 
                     else if(elemento.equalsIgnoreCase("viento")){
-                        if (tipo.equalsIgnoreCase("ofensivo")) {
                             referencia = 6 * 105 * ataque;
                             mensaje = nombre + " ha usado Flecha huracán";
-                        } else {
-                            referencia = -2;
-                            mensaje = nombre + " ha usado Cortina de Aire";
-                        }
                     }
 
                     else if(elemento.equalsIgnoreCase("agua")){
-                        if (tipo.equalsIgnoreCase("ofensivo")) {
                             referencia = 6 * 110 * ataque;
                             mensaje = nombre + " Ola de la muerte";
-                        } else {
-                            referencia = -3;
-                            mensaje = nombre + " ha usado Sanación acuática";
-                        }
                     }
 
                     else if(elemento.equalsIgnoreCase("tierra")){
-                        if (tipo.equalsIgnoreCase("ofensivo")) {
                             referencia = 6 * 115 * ataque;
                             mensaje = nombre + " ha usado Terremoto Aterrador";
-                        } else {
-                            referencia = -4;
-                            mensaje = nombre + " ha usado Colinas de Hierro";
-                        }
                     }
                     energia = 0;
                 }
