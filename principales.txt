@@ -1,0 +1,3 @@
+Iago, fuego, ofensivo, 22, 7, 7, 7, 1, 1
+Belen, viento, ofensivo, 22, 7, 7, 7, 1, 1
+Ronald, tierra, defensivo, 22, 7, 7, 7, 1, 1

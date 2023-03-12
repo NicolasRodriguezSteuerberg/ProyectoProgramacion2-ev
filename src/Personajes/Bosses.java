@@ -35,8 +35,14 @@ public class Bosses extends Personajes{
             }
             else{
                 if(nombre.equalsIgnoreCase("Poseidón")){
-
+                    mensaje = nombre + " ha usado Maremoto";
+                } else if(nombre.equalsIgnoreCase("Hera")){
+                    mensaje = nombre + " ha usado ataque de celos divino";
+                } else if (nombre.equalsIgnoreCase("Zeus")) {
+                    mensaje = nombre + " ha usado Ataque divino";
                 }
+                referencia = 6 * ataque * Random.numeroRandom(90,110);
+                energia = 0;
             }
         }
         return referencia;
