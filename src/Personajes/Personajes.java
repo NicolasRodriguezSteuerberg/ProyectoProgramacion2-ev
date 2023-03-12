@@ -63,7 +63,6 @@ public class Personajes {
         resistenciaAtaque = 1;
         switch(opcion){
             case 0:
-                //JOptionPane.showMessageDialog(null, nombre + " ha usado atacar");
                 if(energia < 3){
                     energia++;
                 }
@@ -71,7 +70,6 @@ public class Personajes {
                 mensaje = nombre + " ha usado atacar";
                 break;
             case 1:
-                //JOptionPane.showMessageDialog(null, nombre + " se está defendiendo");
                 if(energia < 3){
                     energia++;
                 }
