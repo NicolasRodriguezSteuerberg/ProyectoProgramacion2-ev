@@ -1,5 +1,6 @@
 package Historia;
 
+import com.nicosteuerberg.datos.PedirDatos;
 import com.nicosteuerberg.datos.SacarMensaje;
 
 public class Infierno {
@@ -22,5 +23,7 @@ public class Infierno {
          * Cambio de equipo
          */
         Cielo.cielo();
+
+
     }
 }
