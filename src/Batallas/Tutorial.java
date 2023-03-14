@@ -13,8 +13,7 @@ public class Tutorial {
     public int primeraBatalla(ArrayList<Subditos>equipo,ArrayList<Subditos>rival){
         JOptionPane.showMessageDialog(null,"Bienvenido a tu primera batalla. Veamos las opciones que tienes");
 
-        Integer op1_eq=equipo.get(0).movimientos();
-        Integer op1_riv=rival.get(0).movimientos();
+
 
 
         int atqEq,atqRiv;
@@ -25,28 +24,31 @@ public class Tutorial {
                JOptionPane.showMessageDialog(null,"Enhorabuena!, ya tienes la energía suficiente para usar tu movimiento especial");
            }
 
+           Integer op_eq=equipo.get(0).movimientos();
+           Integer op_riv=rival.get(0).movimientos();
+
            //Si el rival ataca primero:
 
            if (equipo.get(0).getVelocidad()<=rival.get(0).getVelocidad()){
                JOptionPane.showMessageDialog(null,rival.get(0).getMensaje());
-               atqRiv= (int) ((2.55*(op1_riv/(equipo.get(0).getDefensa()*25)+2))/equipo.get(0).getResistenciaAtaque());
+               atqRiv= (int) ((2.55*(op_riv/(equipo.get(0).getDefensa()*25)+2))/equipo.get(0).getResistenciaAtaque());
                equipo.get(0).setVida(equipo.get(0).getVida()-atqRiv);
 
                if(equipo.get(0).getVida()>0){
                    JOptionPane.showMessageDialog(null,equipo.get(0).getMensaje());
-                   atqEq= (int) ((2.55*(op1_eq/(rival.get(0).getDefensa()*25)+2))/rival.get(0).getResistenciaAtaque());
+                   atqEq= (int) ((2.55*(op_eq/(rival.get(0).getDefensa()*25)+2))/rival.get(0).getResistenciaAtaque());
                    rival.get(0).setVida(rival.get(0).getVida()-atqEq);
                }
 
-           }else{ //Si el subdito acata primero:
+           }else{ //Si el subdito ataca primero:
 
                JOptionPane.showMessageDialog(null,equipo.get(0).getMensaje());
-               atqEq= (int) ((2.55*(op1_eq/(rival.get(0).getDefensa()*25)+2))/rival.get(0).getResistenciaAtaque());
+               atqEq= (int) ((2.55*(op_eq/(rival.get(0).getDefensa()*25)+2))/rival.get(0).getResistenciaAtaque());
                rival.get(0).setVida(rival.get(0).getVida()-atqEq);
 
                if(rival.get(0).getVida()>0){
                    JOptionPane.showMessageDialog(null,rival.get(0).getMensaje());
-                   atqRiv= (int) ((2.55*(op1_riv/(equipo.get(0).getDefensa()*25)+2))/equipo.get(0).getResistenciaAtaque());
+                   atqRiv= (int) ((2.55*(op_riv/(equipo.get(0).getDefensa()*25)+2))/equipo.get(0).getResistenciaAtaque());
                    equipo.get(0).setVida(equipo.get(0).getVida()-atqRiv);
                }
            }
