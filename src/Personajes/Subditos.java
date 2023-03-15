@@ -1,16 +1,16 @@
 package Personajes;
 
-import Datos.Random;
+import Datos.Libreria;
 import java.util.ArrayList;
 
 public class Subditos extends Personajes{
     private int nivel;
 
     /**
-     * @param nombre
-     * @param elemento
-     * @param tipo
-     * @param vida
+     * @param nombre nombre subdito
+     * @param elemento elemento subdito
+     * @param tipo ofensivo o defensivo
+     * @param vida vida máxima/actual
      * @param ataque
      * @param defensa
      * @param velocidad
@@ -31,41 +31,41 @@ public class Subditos extends Personajes{
             aVelocidad = lista.get(i).velocidad;
             if (lista.get(i).elemento.equalsIgnoreCase("fuego")) {
                 if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 8;aAtaque =+ Random.numeroRandom(6,7);aDefensa =+ 2;aVelocidad =+ 3;
+                    aVida =+ 8;aAtaque =+ Libreria.numeroRandom(6,7);aDefensa =+ 2;aVelocidad =+ 3;
                 } else {
-                    aVida =+ 9; aAtaque =+ Random.numeroRandomProbabilidad(4,5, 25); aDefensa =+ Random.numeroRandom(3,4); aVelocidad =+ Random.numeroRandom(2,3);
+                    aVida =+ 9; aAtaque =+ Libreria.numeroRandomProbabilidad(4,5, 25); aDefensa =+ Libreria.numeroRandom(3,4); aVelocidad =+ Libreria.numeroRandom(2,3);
                 }
             }
 
             else if(lista.get(i).elemento.equalsIgnoreCase("rayo")){
                 if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 9; aAtaque =+ Random.numeroRandom(5,6); aDefensa =+ 3; aVelocidad =+ 4;
+                    aVida =+ 9; aAtaque =+ Libreria.numeroRandom(5,6); aDefensa =+ 3; aVelocidad =+ 4;
                 } else {
-                    aVida =+ 10; aAtaque =+ Random.numeroRandomProbabilidad(3,4, 25); aDefensa =+ 4; aVelocidad =+ Random.numeroRandom(3,4);
+                    aVida =+ 10; aAtaque =+ Libreria.numeroRandomProbabilidad(3,4, 25); aDefensa =+ 4; aVelocidad =+ Libreria.numeroRandom(3,4);
                 }
             }
 
             else if(lista.get(i).elemento.equalsIgnoreCase("viento")){
                 if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 10; aAtaque =+ Random.numeroRandom(5,6); aDefensa =+ 2; aVelocidad =+ 5;
+                    aVida =+ 10; aAtaque =+ Libreria.numeroRandom(5,6); aDefensa =+ 2; aVelocidad =+ 5;
                 } else {
-                    aVida =+ 11; aAtaque =+ 3; aDefensa =+ Random.numeroRandom(4,5); aVelocidad =+ Random.numeroRandom(4,5);
+                    aVida =+ 11; aAtaque =+ 3; aDefensa =+ Libreria.numeroRandom(4,5); aVelocidad =+ Libreria.numeroRandom(4,5);
                 }
             }
 
             else if(lista.get(i).elemento.equalsIgnoreCase("agua")){
                 if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 11; aAtaque =+ 4; aDefensa =+ Random.numeroRandom(3,4); aVelocidad =+ 3;
+                    aVida =+ 11; aAtaque =+ 4; aDefensa =+ Libreria.numeroRandom(3,4); aVelocidad =+ 3;
                 } else {
-                    aVida =+ 12; aAtaque =+ Random.numeroRandomProbabilidad(2,3,25); aDefensa =+ Random.numeroRandom(5,6); aVelocidad =+ Random.numeroRandom(2,3);
+                    aVida =+ 12; aAtaque =+ Libreria.numeroRandomProbabilidad(2,3,25); aDefensa =+ Libreria.numeroRandom(5,6); aVelocidad =+ Libreria.numeroRandom(2,3);
                 }
             }
 
             else if(lista.get(i).elemento.equalsIgnoreCase("tierra")){
                 if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 12; aAtaque =+ Random.numeroRandom(3,4); aDefensa =+ 3; aVelocidad =+ Random.numeroRandomProbabilidad(2,3,25);
+                    aVida =+ 12; aAtaque =+ Libreria.numeroRandom(3,4); aDefensa =+ 3; aVelocidad =+ Libreria.numeroRandomProbabilidad(2,3,25);
                 } else {
-                    aVida =+ 13; aAtaque =+ 2; aDefensa =+ Random.numeroRandom(6,7); aVelocidad =+ 2;
+                    aVida =+ 13; aAtaque =+ 2; aDefensa =+ Libreria.numeroRandom(6,7); aVelocidad =+ 2;
                 }
             }
             lista.get(i).setVida(aVida);
