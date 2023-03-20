@@ -62,7 +62,7 @@ public class Libreria {
 
     // "Reiniciar estadisticas"
 
-    public void reinciarVida(ArrayList<Subditos>equipo, int nroSubdito,int auxvida){
+    public static void reinciarVida(ArrayList<Subditos>equipo, int nroSubdito,int auxvida){
         equipo.get(nroSubdito).setVida(auxvida);
         equipo.get(nroSubdito).setEnergia(0);
     }

@@ -1,6 +1,6 @@
 package Personajes;
 
-import Datos.Random;
+import Datos.Libreria;
 
 public class Bosses extends Personajes{
     int escenario;
@@ -25,13 +25,14 @@ public class Bosses extends Personajes{
         Integer referencia = null; //referencia del poder ofensivo del movimiento
         if(energia<3){
             mensaje = nombre + " ha atacado";
+            referencia = 6 *
             energia++;
 
         }
         else{
             if (escenario==1){
                 mensaje = nombre + " ha usado evangelización\nVuelve a clase :(";
-                referencia = 6 * ataque * Random.numeroRandom(80,110);
+                referencia = 6 * ataque * Libreria.numeroRandom(80,110);
             }
             else{
                 if(nombre.equalsIgnoreCase("Poseidón")){
@@ -41,7 +42,7 @@ public class Bosses extends Personajes{
                 } else if (nombre.equalsIgnoreCase("Zeus")) {
                     mensaje = nombre + " ha usado Ataque divino";
                 }
-                referencia = 6 * ataque * Random.numeroRandom(90,110);
+                referencia = 6 * ataque * Libreria.numeroRandom(90,110);
                 energia = 0;
             }
         }
