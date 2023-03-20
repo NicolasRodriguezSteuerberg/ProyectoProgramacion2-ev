@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 public class BatallaPreBoss{
 
+
+
+    int nroSubdito=0;
+    int opc;
+    
     public void calcularAtqRiv(ArrayList<Subditos>equipo, ArrayList<Subditos>rival,int nroSubdito, int op_riv){
         JOptionPane.showMessageDialog(null,rival.get(0).getMensaje());
         int atqRiv= (int) ((2.55*(op_riv/(equipo.get(nroSubdito).getDefensa()*25)+2))/equipo.get(nroSubdito).getResistenciaAtaque());
@@ -24,8 +29,7 @@ public class BatallaPreBoss{
 
     public int batallaNormal(ArrayList<Subditos> equipo, ArrayList<Subditos>rival){
 
-    int nroSubdito=0;
-    int opc;
+
 
     do{
         int auxVida=equipo.get(nroSubdito).getVida();
@@ -54,11 +58,14 @@ public class BatallaPreBoss{
 
         if(equipo.get(nroSubdito).getVida()<=0){
             SacarMensaje.sacarVentana(equipo.get(nroSubdito).getNombre()+" ha muerto.");
-            equipo.get(nroSubdito).setVida(auxVida);
             nroSubdito++;
         }
 
-    }while(equipo.size()<nroSubdito || rival.get(0).getVida()>0);
+        /*AQUI LLAMAR AL METODO PARA REINICIAR VIDA Y ENERGÍA
+        * */
+
+
+    }while(equipo.size()>nroSubdito || rival.get(0).getVida()>0);
 
     if(rival.get(0).getVida()>0){
         opc=PedirDatos.getInt("Lo siento. Has perdido..."+"\n"+
@@ -68,6 +75,7 @@ public class BatallaPreBoss{
         SacarMensaje.sacarVentana("Buen trabajo, has ganado! Suerte en tu próxima aventura (la necesitarás)");
         opc=3;
     }
+
     return opc;
     }
 }
