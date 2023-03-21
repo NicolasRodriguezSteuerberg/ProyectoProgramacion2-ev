@@ -10,27 +10,27 @@ import java.util.ArrayList;
 
 public class BatallaPreBoss{
 
+    int opc;
     public void calcularAtqRiv(ArrayList<Subditos>equipo, ArrayList<Subditos>rival,int nroSubdito, int op_riv){
-        JOptionPane.showMessageDialog(null,rival.get(0).getMensaje());
+        SacarMensaje.sacarVentana(rival.get(0).getMensaje());
         int atqRiv= (int) ((2.55*(op_riv/(equipo.get(nroSubdito).getDefensa()*25)+2))/equipo.get(nroSubdito).getResistenciaAtaque());
         equipo.get(nroSubdito).setVida(equipo.get(nroSubdito).getVida()-atqRiv);
     }
 
     public void calcularAtqEq(ArrayList<Subditos>equipo, ArrayList<Subditos>rival,int nroSubdito, int op_eq){
-        JOptionPane.showMessageDialog(null,equipo.get(nroSubdito).getMensaje());
+        SacarMensaje.sacarVentana(equipo.get(nroSubdito).getMensaje());
         int atqEq= (int) ((2.55*(op_eq/(rival.get(0).getDefensa()*25)+2))/rival.get(0).getResistenciaAtaque());
         rival.get(0).setVida(rival.get(0).getVida()-atqEq);
     }
 
     public int batallaNormal(ArrayList<Subditos> equipo, ArrayList<Subditos>rival){
 
-    int nroSubdito=0;
-    int opc;
+        int nroSubdito=0;
 
     do{
         int auxVida=equipo.get(nroSubdito).getVida();
-        Integer op_eq=equipo.get(nroSubdito).movimientos();
-        Integer op_riv=rival.get(0).movimientos();
+        int op_eq=equipo.get(nroSubdito).movimientos();
+        int op_riv=rival.get(0).movimientos();
         do{
 
             //Si el rival ataca primero:
@@ -54,11 +54,16 @@ public class BatallaPreBoss{
 
         if(equipo.get(nroSubdito).getVida()<=0){
             SacarMensaje.sacarVentana(equipo.get(nroSubdito).getNombre()+" ha muerto.");
-            equipo.get(nroSubdito).setVida(auxVida);
             nroSubdito++;
         }
 
-    }while(equipo.size()<nroSubdito || rival.get(0).getVida()>0);
+        /*AQUI LLAMAR AL METODO PARA REINICIAR VIDA Y ENERGÍA
+        * */
+
+        Libreria.reiniciarVida(equipo,(nroSubdito-1),auxVida);
+
+
+    }while(equipo.size()>nroSubdito || rival.get(0).getVida()>0);
 
     if(rival.get(0).getVida()>0){
         opc=PedirDatos.getInt("Lo siento. Has perdido..."+"\n"+
@@ -68,6 +73,7 @@ public class BatallaPreBoss{
         SacarMensaje.sacarVentana("Buen trabajo, has ganado! Suerte en tu próxima aventura (la necesitarás)");
         opc=3;
     }
+
     return opc;
     }
 }
