@@ -22,7 +22,8 @@ public class Subditos extends Personajes{
         this.nivel = nivel;
     }
     public Subditos(){}
-    public void subirNivel(ArrayList<Personajes> lista){
+
+    public void subirNivel(ArrayList<Subditos> lista){
         int aVida, aAtaque, aDefensa, aVelocidad;
         for (int i=0; i < lista.size(); i++){
             aVida = lista.get(i).vida;

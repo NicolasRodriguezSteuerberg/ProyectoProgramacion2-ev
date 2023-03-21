@@ -1,6 +1,7 @@
 package Personajes;
 
 import com.nicosteuerberg.datos.PedirDatos;
+import com.nicosteuerberg.datos.SacarMensaje;
 
 import javax.swing.*;
 
@@ -48,11 +49,10 @@ public class Personajes {
         Integer referencia = null; //referencia al movimiento especial, el daño hecho en atacar o en ataque especial, o si se está a defender
         do {
             try {
-                opcion = JOptionPane.showOptionDialog(null, "Escoja el movimiento", "", 0, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
+                opcion = SacarMensaje.pedirOpciones("Escoja el movimiento", opciones);
             } catch (Exception e) {
-                System.out.println("Erro ao escoller a opcion");
+                SacarMensaje.sacarVentana("Erro ao escoller a opcion, intentelo de nuevo");
             }
-            System.out.println(opcion);
         }while (opcion==null);
         /**
          * opcion = 0 -> atacar
@@ -79,7 +79,7 @@ public class Personajes {
                 break;
             case 2:
                 if(energia < 3){
-                    JOptionPane.showMessageDialog(null, "Energia insuficiente");
+                    SacarMensaje.sacarVentana("Energia insuficiente");
                     movimientos();
                 }else {
                     if (elemento.equalsIgnoreCase("fuego")) {
@@ -204,6 +204,10 @@ public class Personajes {
 
     @Override
     public String toString() {
-        return nombre +", " + elemento +", " + tipo + ", " + vida + " ps, "+ ataque + " ATK, " + defensa + " DEF, " + velocidad + " Vel";
+        if(vida<0){
+            return nombre +", " + elemento +", " + tipo + ", " + "0 ps, "+ ataque + " ATK, " + defensa + " DEF, " + velocidad + " Vel";
+        }else {
+            return nombre + ", " + elemento + ", " + tipo + ", " + vida + " ps, " + ataque + " ATK, " + defensa + " DEF, " + velocidad + " Vel";
+        }
     }
 }

@@ -67,4 +67,10 @@ public class Libreria {
         equipo.get(nroSubdito).setEnergia(0);
     }
 
+    public static void reinciarVidas(ArrayList<Subditos>equipo, int auxvida[]){
+        for (int i=0;i<equipo.size();i++){
+            equipo.get(i).setVida(auxvida[i]);
+            equipo.get(i).setEnergia(0);
+        }
+    }
 }
