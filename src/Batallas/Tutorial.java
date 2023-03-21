@@ -63,7 +63,7 @@ public class Tutorial {
                    "1 -> Reintentar"+"\n"+
                    "2 -> Salir del juego");
        }else{
-           JOptionPane.showMessageDialog(null,"Buen trabajo, has ganado tu primera batalla.");
+           SacarMensaje.sacarVentana("Buen trabajo, has ganado tu primera batalla.");
            opc=3;
        }
 
