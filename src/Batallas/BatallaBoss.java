@@ -1,5 +1,6 @@
 package Batallas;
 
+import Datos.Libreria;
 import Personajes.Bosses;
 import Personajes.Subditos;
 import com.nicosteuerberg.datos.PedirDatos;
@@ -14,14 +15,18 @@ public class BatallaBoss {
     int opc;
     public void calcularAtqEq(ArrayList<Subditos> equipo, ArrayList<Bosses>boss, int nroSubdito,int nroBoss, int op_eq){
         SacarMensaje.sacarVentana(equipo.get(nroSubdito).getMensaje());
-        int atqEq= (int) ((2.55*(op_eq/(boss.get(nroBoss).getDefensa()*25)+2))/boss.get(nroBoss).getResistenciaAtaque());
-        boss.get(nroBoss).setVida(boss.get(nroBoss).getVida()-atqEq);
+        if(op_eq!=0) {
+            int atqEq = (int) ((2.55 * (op_eq / (boss.get(nroBoss).getDefensa() * 25) + 2)) / boss.get(nroBoss).getResistenciaAtaque());
+            boss.get(nroBoss).setVida(boss.get(nroBoss).getVida() - atqEq);
+        }
     }
 
     public void calcularAtqRiv(ArrayList<Subditos>equipo, ArrayList<Bosses>boss, int nroSubdito,int nroBoss, int op_riv){
         SacarMensaje.sacarVentana(boss.get(nroBoss).getMensaje());
-        int atqRiv= (int) ((2.55*(op_riv/(equipo.get(nroSubdito).getDefensa()*25)+2))/equipo.get(nroSubdito).getResistenciaAtaque());
-        equipo.get(nroSubdito).setVida(equipo.get(nroSubdito).getVida()-atqRiv);
+        if(op_riv!=0) {
+            int atqRiv = (int) ((2.55 * (op_riv / (equipo.get(nroSubdito).getDefensa() * 25) + 2)) / equipo.get(nroSubdito).getResistenciaAtaque());
+            equipo.get(nroSubdito).setVida(equipo.get(nroSubdito).getVida() - atqRiv);
+        }
     }
 
     public int batallaBoss(ArrayList<Subditos>equipo,ArrayList<Bosses>boss,int nroBoss){
@@ -37,7 +42,7 @@ public class BatallaBoss {
             flag=0;
             for (int i=0; i<equipo.size();i++){
                 if(equipo.get(i).getVida()>0 && boss.get(nroBoss).getVida()>0){
-                    movElegido=equipo.get(i).movimientos();
+                    movElegido=equipo.get(i).movimientos(1);
                     calcularAtqEq(equipo,boss,i,nroBoss,movElegido);
                 }
             }
@@ -56,7 +61,7 @@ public class BatallaBoss {
                 }
             }
 
-        } while(boss.get(nroBoss).getVida()>0 || flag==0);
+        } while(boss.get(nroBoss).getVida()>0 && flag==0);
 
         Libreria.reiniciarVidas(equipo,auxVidas);
 

@@ -17,7 +17,7 @@ public class Subditos extends Personajes{
      * @param resistenciaAtaque
      * @param energia
      */
-    public Subditos(String nombre, String elemento, String tipo, int vida, int ataque, int defensa, int velocidad, int resistenciaAtaque, int energia, String mensaje, int nivel) {
+    public Subditos(String nombre, String elemento, String tipo, int vida, int ataque, int defensa, int velocidad, float resistenciaAtaque, int energia, String mensaje, int nivel) {
         super(nombre, elemento, tipo, vida, ataque, defensa, velocidad, resistenciaAtaque, energia, mensaje);
         this.nivel = nivel;
     }
@@ -76,4 +76,11 @@ public class Subditos extends Personajes{
         }
     }
 
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
 }

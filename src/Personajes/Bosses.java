@@ -20,19 +20,19 @@ public class Bosses extends Personajes{
         super(nombre, elemento, tipo, vida, ataque, defensa, velocidad, resistenciaAtaque, energia, mensaje);
     }
 
-    @Override
+
     public Integer movimientos() {
         Integer referencia = null; //referencia del poder ofensivo del movimiento
         if(energia<3){
             mensaje = nombre + " ha atacado";
-            referencia = 6 *
+            referencia = 15 * ataque;
             energia++;
 
         }
         else{
             if (escenario==1){
                 mensaje = nombre + " ha usado evangelización\nVuelve a clase :(";
-                referencia = 6 * ataque * Libreria.numeroRandom(80,110);
+                referencia = ataque * Libreria.numeroRandom(80,110);
             }
             else{
                 if(nombre.equalsIgnoreCase("Poseidón")){
@@ -42,7 +42,7 @@ public class Bosses extends Personajes{
                 } else if (nombre.equalsIgnoreCase("Zeus")) {
                     mensaje = nombre + " ha usado Ataque divino";
                 }
-                referencia = 6 * ataque * Libreria.numeroRandom(90,110);
+                referencia = ataque * Libreria.numeroRandom(90,110);
                 energia = 0;
             }
         }

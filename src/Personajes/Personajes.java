@@ -6,6 +6,7 @@ import com.nicosteuerberg.datos.SacarMensaje;
 import javax.swing.*;
 
 public class Personajes {
+    public final static int RIVAL=9;
     String nombre;
     String elemento;
     String tipo;
@@ -44,16 +45,25 @@ public class Personajes {
     }
     public Personajes(){};
     String [] opciones = {"Atacar","Defender","Movimiento especial"};
-    public Integer movimientos(){
+    public Integer movimientos(int opcionQ){
         Integer opcion = null;
         Integer referencia = null; //referencia al movimiento especial, el daño hecho en atacar o en ataque especial, o si se está a defender
-        do {
-            try {
-                opcion = SacarMensaje.pedirOpciones("Escoja el movimiento", opciones);
-            } catch (Exception e) {
-                SacarMensaje.sacarVentana("Erro ao escoller a opcion, intentelo de nuevo");
+        if(opcionQ!=RIVAL) {
+            do {
+                try {
+                    opcion = SacarMensaje.pedirOpciones("Escoja el movimiento", opciones);
+                } catch (Exception e) {
+                    SacarMensaje.sacarVentana("Erro ao escoller a opcion, intentelo de nuevo");
+                }
             }
-        }while (opcion==null);
+            while (opcion == null);
+        }else{
+            if(energia<3){
+                opcion=0;
+            }else{
+                opcion=2;
+            }
+        }
         /**
          * opcion = 0 -> atacar
          * opcion = 1 -> defender
@@ -66,7 +76,7 @@ public class Personajes {
                 if(energia < 3){
                     energia++;
                 }
-                referencia = 6 * 25 * ataque;
+                referencia = 25 * ataque;
                 mensaje = nombre + " ha usado atacar";
                 break;
             case 1:
@@ -80,30 +90,30 @@ public class Personajes {
             case 2:
                 if(energia < 3){
                     SacarMensaje.sacarVentana("Energia insuficiente");
-                    movimientos();
+                    referencia = movimientos(opcionQ);
                 }else {
                     if (elemento.equalsIgnoreCase("fuego")) {
-                            referencia = 6 * 95 * ataque;
+                            referencia = 95 * ataque;
                             mensaje = nombre + " ha usado Furia de fuego";
                     }
 
                     else if(elemento.equalsIgnoreCase("rayo")){
-                            referencia = 6 * 100 * ataque;
+                            referencia = 100 * ataque;
                             mensaje = nombre + " ha usado Rayo Fulminante";
                     }
 
                     else if(elemento.equalsIgnoreCase("viento")){
-                            referencia = 6 * 105 * ataque;
+                            referencia = 105 * ataque;
                             mensaje = nombre + " ha usado Flecha huracán";
                     }
 
                     else if(elemento.equalsIgnoreCase("agua")){
-                            referencia = 6 * 110 * ataque;
+                            referencia = 110 * ataque;
                             mensaje = nombre + " Ola de la muerte";
                     }
 
                     else if(elemento.equalsIgnoreCase("tierra")){
-                            referencia = 6 * 115 * ataque;
+                            referencia = 115 * ataque;
                             mensaje = nombre + " ha usado Terremoto Aterrador";
                     }
                     energia = 0;
