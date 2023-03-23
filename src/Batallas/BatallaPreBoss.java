@@ -44,7 +44,7 @@ public class BatallaPreBoss{
         int auxVida[] = new int[4];
         añadirRival(rival,personajes);
 
-        SacarMensaje.sacarVentana("Te enfrentarás contra: "+rival.get(0).getNombre());
+        SacarMensaje.sacarVentana("Siguiendo tu aventura te encuentras a otro rival\nTe enfrentarás contra: "+rival.get(0).getNombre());
 
     do{
         auxVida[nroSubdito]=equipo.get(nroSubdito).getVida();

@@ -38,7 +38,7 @@ public class Ficheros{
         try {
             sc = new Scanner(e);
             while (sc.hasNextLine()){
-                aux = sc.nextLine().split("\\s,\\s");
+                aux = sc.nextLine().split("\\s*,\\s*");
                 boss.add(new Bosses(aux[0],aux[1],aux[2],Integer.parseInt(aux[3]),Integer.parseInt(aux[4]),Integer.parseInt(aux[5]),Integer.parseInt(aux[6]),Integer.parseInt(aux[7]),Integer.parseInt(aux[8]),null,Integer.parseInt(aux[9])));
             }
         } catch (FileNotFoundException ex) {

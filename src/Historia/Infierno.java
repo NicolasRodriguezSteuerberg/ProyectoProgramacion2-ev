@@ -5,8 +5,8 @@ import Batallas.BatallaPreBoss;
 import Batallas.Tutorial;
 import Datos.Ficheros;
 import Datos.Libreria;
+import Personajes.Bosses;
 import Personajes.Subditos;
-import com.nicosteuerberg.datos.PedirDatos;
 import com.nicosteuerberg.datos.SacarMensaje;
 
 import java.io.File;
@@ -15,17 +15,10 @@ import java.util.ArrayList;
 public class Infierno {
 
 
-
-    public static void añadirIntegrante(ArrayList<Subditos> equipo,ArrayList<Subditos> personajes){
-        int numero;
-        numero = Libreria.numeroRandom(0,(personajes.size()-1));
-        for(int i=0;i<equipo.size();i++){
-            if(personajes.get(numero).getNombre().equals(equipo.get(i).getNombre())){
-                numero = Libreria.numeroRandom(0,(personajes.size()-1));
-                i = 0;
-            }
-        }
-        equipo.add(new Subditos(personajes.get(numero).getNombre(),personajes.get(numero).getElemento(),personajes.get(numero).getTipo(),personajes.get(numero).getVida(),personajes.get(numero).getAtaque(),personajes.get(numero).getDefensa(),personajes.get(numero).getVelocidad(),personajes.get(numero).getResistenciaAtaque(),1,"",personajes.get(numero).getNivel()));
+    public static void subirNiveles(ArrayList<Subditos> equipo, ArrayList<Subditos> personajes){
+        Subditos.subirNivel(equipo);
+        Subditos.subirNivel(personajes);
+        SacarMensaje.sacarVentana("Felicidades has subido de nivel");
     }
 
     public static void infierno(){
@@ -35,10 +28,15 @@ public class Infierno {
         ArrayList<Subditos> seleccion = new ArrayList();
         ArrayList<Subditos> personajes = new ArrayList();
         ArrayList<Subditos> rivales = new ArrayList();
+        ArrayList<Bosses> bosses= new ArrayList();
         rivales.add(new Subditos("","","",0,0,0,0,1,0,"",0));
 
         //leer ficheros
         Ficheros obxFicheros = new Ficheros();
+
+        //lectura de todos los bosses
+        File bo = new File("boss.txt");
+        bosses = obxFicheros.lerFicheroBoss(bo);
 
         //lectura de todos los súbditos/rivales
         File pers = new File("subditos.txt");
@@ -66,37 +64,40 @@ public class Infierno {
         Tutorial.primeraBatalla(equipo,rivales,personajes);
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
 
-        /**ToDo
-         * añadir nuevo personaje, subir nivel
-         */
-        SacarMensaje.sacarVentana("Enhorabuena, has subido al nivel 2, tu súbdito a subido de poder.\n"+
-                "Además has conseguido fama, gracias a esto ---- se ha unido a tu equipo\n"+
-                "Al aumentar tu poder el primer infernal se ha interesado en luchar contigo.");
+        subirNiveles(equipo,personajes);
 
-        /**ToDo
-         * Subir nivel pre batalla, Batallas boss, subir nivel post batalla
-         */
+        Libreria.añadirIntegrante(equipo,personajes);
+
+        BatallaBoss.batallaBoss(equipo,bosses,0);
+
+        subirNiveles(equipo,personajes);
 
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
 
-        /**ToDo
-         * Subir nivel pre batalla, Batallas boss, subir nivel post batalla
-         */
+        subirNiveles(equipo,personajes);
+
+        Libreria.añadirIntegrante(equipo,personajes);
+
+        BatallaBoss.batallaBoss(equipo,bosses,1);
 
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
 
-        /**ToDo
-         * Subir nivel pre batalla, Batallas boss, subir nivel post batalla
-         */
+        Libreria.añadirIntegrante(equipo,personajes);
+
+        BatallaBoss.batallaBoss(equipo,bosses,2);
+
+        subirNiveles(equipo,personajes);
 
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
         BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
 
-        /**ToDo
-         * Subir nivel pre batalla, Batallas boss, subir nivel post batalla
-         */
+        subirNiveles(equipo,personajes);
+
+        BatallaBoss.batallaBoss(equipo,bosses,3);
+
+        subirNiveles(equipo,personajes);
 
         //final infierno
         SacarMensaje.sacarVentana("Enhorabuena has ganado a todos los infernales y has conseguido\n"+
@@ -111,7 +112,7 @@ public class Infierno {
          * Cambio de equipo
          */
 
-        Cielo.cielo();
+        Cielo.cielo(equipo,bosses);
 
 
     }

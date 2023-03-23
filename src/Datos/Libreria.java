@@ -33,12 +33,11 @@ public class Libreria {
 
 
     // Instrucciones
-    String [] opciones = {"Objetivo","Movimientos","Diferencia entre personajes", "Salir"};
-    String [] opciones2 = {"Si","No"};
-
-    public void Instrucciones(){
+    public static void Instrucciones(){
+        String [] opciones = {"Objetivo","Movimientos","Diferencia entre personajes", "Salir"};
+        String [] opciones2 = {"Si","No"};
         int opcion;
-        int opcion2 = 0;
+        Integer opcion2=0;
 
         do {
             opcion = SacarMensaje.pedirOpciones("¿Que quieres saber sobre el juego?",opciones);
@@ -48,7 +47,7 @@ public class Libreria {
                     opcion2 = SacarMensaje.pedirOpciones("¿Quieres saber algo más del juego?",opciones2);
                     break;
                 case 1:
-                    SacarMensaje.sacarVentana("Hay 3 movimientos en este juego:\n1->Atacar: es un ataque débil que hace daño al enemigo. Sube la energia en 1\n2->Defenderse: esto te permite que el ataque recibido sea menor. Sube la energia en 1\n3->Movimiento especial: es un ataque fuerte y único por cada elemento que solo se puede hacer cuando tienes 3 de energia. Al realizarlo tu energia pasa a ser 0");
+                    SacarMensaje.sacarVentana("Hay 3 movimientos en este juego:\n1->Atacar: es un ataque débil que hace daño al enemigo. Sube la energia en 1\n2->Defenderse: esto te permite que el ataque recibido sea menor. Sube la energia en 1\n3->Movimiento especial: es un ataque fuerte y único por cada elemento que solo se puede hacer cuando tienes 3 de energia. Energia inicial=1. Al realizarlo tu energia pasa a ser 1");
                     opcion2 = SacarMensaje.pedirOpciones("¿Quieres saber algo más del juego?",opciones2);
                     break;
                 case 2:
@@ -56,12 +55,11 @@ public class Libreria {
                     opcion2 = SacarMensaje.pedirOpciones("¿Quieres saber algo más del juego?",opciones2);
             }
 
-        }while(opcion <= 2 && opcion >= 0 || opcion2==1);
+        }while(opcion2==0);
     }
 
 
     // "Reiniciar estadisticas"
-
     public static void reiniciarVida(ArrayList<Subditos>equipo, int nroSubdito,int auxvida){
         equipo.get(nroSubdito).setVida(auxvida);
         equipo.get(nroSubdito).setEnergia(1);
@@ -72,5 +70,18 @@ public class Libreria {
             equipo.get(i).setVida(auxvida[i]);
             equipo.get(i).setEnergia(1);
         }
+    }
+
+    public static void añadirIntegrante(ArrayList<Subditos> equipo,ArrayList<Subditos> personajes){
+        int numero;
+        numero = Libreria.numeroRandom(0,(personajes.size()-1));
+        for(int i=0;i<equipo.size();i++){
+            if(personajes.get(numero).getNombre().equals(equipo.get(i).getNombre())){
+                numero = Libreria.numeroRandom(0,(personajes.size()-1));
+                i = 0;
+            }
+        }
+        equipo.add(new Subditos(personajes.get(numero).getNombre(),personajes.get(numero).getElemento(),personajes.get(numero).getTipo(),personajes.get(numero).getVida(),personajes.get(numero).getAtaque(),personajes.get(numero).getDefensa(),personajes.get(numero).getVelocidad(),personajes.get(numero).getResistenciaAtaque(),1,"",personajes.get(numero).getNivel()));
+        SacarMensaje.sacarVentana("Tu fama ha aumentado, por lo que " + equipo.get(equipo.size()-1).getNombre() + " se ha unido a tu equipo:\n" + equipo.get(equipo.size()-1).toString());
     }
 }

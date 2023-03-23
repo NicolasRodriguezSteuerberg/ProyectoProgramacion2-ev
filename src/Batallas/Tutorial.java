@@ -38,7 +38,10 @@ public class Tutorial {
 
     public static void primeraBatalla(ArrayList<Subditos>equipo,ArrayList<Subditos>rival,ArrayList<Subditos>personajes){
         añadirRival(rival,personajes);
-       SacarMensaje.sacarVentana("Bienvenido a tu primera batalla. Veamos las opciones que tienes");
+       SacarMensaje.sacarVentana("Bienvenido a tu primera batalla. Veamos las opciones que tienes:\n" +
+               "Atacar -> Atacas al rival (movimiento común)\n" +
+               "Defender -> El daño del rival hacia ti se reduce (movimiento común)\n" +
+               "Movimiento especial -> Característico del elemento, siendo más potente que 'Atacar' (necesitas 3 de energía para poder usarlo)");
         Integer opc=null;
 
 
@@ -71,7 +74,9 @@ public class Tutorial {
                calcularAtqEq(equipo,rival,op_eq);
 
                if(rival.get(0).getVida()>0){
-                   SacarMensaje.sacarVentana(rival.get(0).getNombre() + " (rival) se ha quedado a " + rival.get(0).getVida());
+                   if(op_eq!=0) {
+                       SacarMensaje.sacarVentana(rival.get(0).getNombre() + " (rival) se ha quedado a " + rival.get(0).getVida());
+                   }
                    calcularAtqRiv(equipo,rival,op_riv);
 
                    if(equipo.get(0).getVida()>0){

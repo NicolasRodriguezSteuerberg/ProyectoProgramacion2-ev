@@ -23,56 +23,59 @@ public class Subditos extends Personajes{
     }
     public Subditos(){}
 
-    public void subirNivel(ArrayList<Subditos> lista){
-        int aVida, aAtaque, aDefensa, aVelocidad;
+    public static void subirNivel(ArrayList<Subditos> lista){
+        int aVida, aAtaque, aDefensa, aVelocidad,aNivel;
         for (int i=0; i < lista.size(); i++){
-            aVida = lista.get(i).vida;
-            aAtaque = lista.get(i).ataque;
-            aDefensa = lista.get(i).defensa;
-            aVelocidad = lista.get(i).velocidad;
-            if (lista.get(i).elemento.equalsIgnoreCase("fuego")) {
-                if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 8;aAtaque =+ Libreria.numeroRandom(6,7);aDefensa =+ 2;aVelocidad =+ 3;
+            aVida = lista.get(i).getVida();
+            aAtaque = lista.get(i).getAtaque();
+            aDefensa = lista.get(i).getDefensa();
+            aVelocidad = lista.get(i).getVelocidad();
+            aNivel = lista.get(i).getNivel() + 1;
+
+            if (lista.get(i).getElemento().equalsIgnoreCase("fuego")) {
+                if (lista.get(i).getTipo().equalsIgnoreCase("ofensivo")) {
+                    aVida += 8;aAtaque += Libreria.numeroRandom(6,7);aDefensa += 2;aVelocidad += 3;
                 } else {
-                    aVida =+ 9; aAtaque =+ Libreria.numeroRandomProbabilidad(4,5, 25); aDefensa =+ Libreria.numeroRandom(3,4); aVelocidad =+ Libreria.numeroRandom(2,3);
+                    aVida += 9; aAtaque += Libreria.numeroRandomProbabilidad(4,5, 25); aDefensa += Libreria.numeroRandom(3,4); aVelocidad += Libreria.numeroRandom(2,3);
                 }
             }
 
-            else if(lista.get(i).elemento.equalsIgnoreCase("rayo")){
-                if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 9; aAtaque =+ Libreria.numeroRandom(5,6); aDefensa =+ 3; aVelocidad =+ 4;
+            else if(lista.get(i).getElemento().equalsIgnoreCase("rayo")){
+                if (lista.get(i).getTipo().equalsIgnoreCase("ofensivo")) {
+                    aVida += 9; aAtaque += Libreria.numeroRandom(5,6); aDefensa += 3; aVelocidad += 4;
                 } else {
-                    aVida =+ 10; aAtaque =+ Libreria.numeroRandomProbabilidad(3,4, 25); aDefensa =+ 4; aVelocidad =+ Libreria.numeroRandom(3,4);
+                    aVida += 10; aAtaque += Libreria.numeroRandomProbabilidad(3,4, 25); aDefensa += 4; aVelocidad += Libreria.numeroRandom(3,4);
                 }
             }
 
-            else if(lista.get(i).elemento.equalsIgnoreCase("viento")){
-                if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 10; aAtaque =+ Libreria.numeroRandom(5,6); aDefensa =+ 2; aVelocidad =+ 5;
+            else if(lista.get(i).getElemento().equalsIgnoreCase("viento")){
+                if (lista.get(i).getTipo().equalsIgnoreCase("ofensivo")) {
+                    aVida += 10; aAtaque += Libreria.numeroRandom(5,6); aDefensa += 2; aVelocidad += 5;
                 } else {
-                    aVida =+ 11; aAtaque =+ 3; aDefensa =+ Libreria.numeroRandom(4,5); aVelocidad =+ Libreria.numeroRandom(4,5);
+                    aVida += 11; aAtaque += 3; aDefensa += Libreria.numeroRandom(4,5); aVelocidad += Libreria.numeroRandom(4,5);
                 }
             }
 
-            else if(lista.get(i).elemento.equalsIgnoreCase("agua")){
-                if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 11; aAtaque =+ 4; aDefensa =+ Libreria.numeroRandom(3,4); aVelocidad =+ 3;
+            else if(lista.get(i).getElemento().equalsIgnoreCase("agua")){
+                if (lista.get(i).getTipo().equalsIgnoreCase("ofensivo")) {
+                    aVida += 11; aAtaque += 4; aDefensa += Libreria.numeroRandom(3,4); aVelocidad += 3;
                 } else {
-                    aVida =+ 12; aAtaque =+ Libreria.numeroRandomProbabilidad(2,3,25); aDefensa =+ Libreria.numeroRandom(5,6); aVelocidad =+ Libreria.numeroRandom(2,3);
+                    aVida += 12; aAtaque += Libreria.numeroRandomProbabilidad(2,3,25); aDefensa += Libreria.numeroRandom(5,6); aVelocidad += Libreria.numeroRandom(2,3);
                 }
             }
 
-            else if(lista.get(i).elemento.equalsIgnoreCase("tierra")){
-                if (lista.get(i).tipo.equalsIgnoreCase("ofensivo")) {
-                    aVida =+ 12; aAtaque =+ Libreria.numeroRandom(3,4); aDefensa =+ 3; aVelocidad =+ Libreria.numeroRandomProbabilidad(2,3,25);
+            else if(lista.get(i).getElemento().equalsIgnoreCase("tierra")){
+                if (lista.get(i).getTipo().equalsIgnoreCase("ofensivo")) {
+                    aVida += 12; aAtaque += Libreria.numeroRandom(3,4); aDefensa += 3; aVelocidad += Libreria.numeroRandomProbabilidad(2,3,25);
                 } else {
-                    aVida =+ 13; aAtaque =+ 2; aDefensa =+ Libreria.numeroRandom(6,7); aVelocidad =+ 2;
+                    aVida += 13; aAtaque += 2; aDefensa += Libreria.numeroRandom(6,7); aVelocidad += 2;
                 }
             }
             lista.get(i).setVida(aVida);
             lista.get(i).setAtaque(aAtaque);
             lista.get(i).setDefensa(aDefensa);
             lista.get(i).setVelocidad(aVelocidad);
+            lista.get(i).setNivel(aNivel);
         }
     }
 

@@ -51,9 +51,10 @@ public class Personajes {
         if(opcionQ!=RIVAL) {
             do {
                 try {
-                    opcion = SacarMensaje.pedirOpciones("Escoja el movimiento", opciones);
+                    opcion = SacarMensaje.pedirOpciones("Es turno de "+nombre+": "+"\nEscoja el movimiento", opciones);
                 } catch (Exception e) {
-                    SacarMensaje.sacarVentana("Erro ao escoller a opcion, intentelo de nuevo");
+                    SacarMensaje.sacarVentana("Error al escoger la opcion, intentelo de nuevo");
+                    opcion=null;
                 }
             }
             while (opcion == null);
@@ -215,9 +216,9 @@ public class Personajes {
     @Override
     public String toString() {
         if(vida<0){
-            return nombre +", " + elemento +", " + tipo + ", " + "0 ps, "+ ataque + " ATK, " + defensa + " DEF, " + velocidad + " Vel";
+            return getNombre() +", " + getElemento() +", " + getTipo() + ", " + "0 PS";
         }else {
-            return nombre + ", " + elemento + ", " + tipo + ", " + vida + " ps, " + ataque + " ATK, " + defensa + " DEF, " + velocidad + " Vel";
+            return getNombre() + ", " + getElemento() + ", " + getTipo() + ", " + getVida() + " PS, " + getAtaque() + " ATK, " + getDefensa() + " DEF, " + getVelocidad() + " Vel";
         }
     }
 }

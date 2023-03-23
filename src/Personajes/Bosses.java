@@ -18,17 +18,19 @@ public class Bosses extends Personajes{
      */
     public Bosses(String nombre, String elemento, String tipo, int vida, int ataque, int defensa, int velocidad, int resistenciaAtaque, int energia, String mensaje, int escenario) {
         super(nombre, elemento, tipo, vida, ataque, defensa, velocidad, resistenciaAtaque, energia, mensaje);
+        this.escenario=escenario;
     }
 
 
     public Integer movimientos() {
         Integer referencia = null; //referencia del poder ofensivo del movimiento
+
         if(energia<3){
             mensaje = nombre + " ha atacado";
             referencia = 15 * ataque;
             energia++;
-
         }
+
         else{
             if (escenario==1){
                 mensaje = nombre + " ha usado evangelización\nVuelve a clase :(";
@@ -39,12 +41,12 @@ public class Bosses extends Personajes{
                     mensaje = nombre + " ha usado Maremoto";
                 } else if(nombre.equalsIgnoreCase("Hera")){
                     mensaje = nombre + " ha usado ataque de celos divino";
-                } else if (nombre.equalsIgnoreCase("Zeus")) {
-                    mensaje = nombre + " ha usado Ataque divino";
+                } else if (nombre.equalsIgnoreCase("Loki")) {
+                    mensaje = nombre + " ha usado Mentira divina";
                 }
                 referencia = ataque * Libreria.numeroRandom(90,110);
-                energia = 0;
             }
+            energia = 0;
         }
         return referencia;
     }
