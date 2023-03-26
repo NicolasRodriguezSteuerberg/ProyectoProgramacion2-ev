@@ -42,12 +42,16 @@ public class BatallaPreBoss{
         Integer opc=null;
         int nroSubdito=0;
         int auxVida[] = new int[4];
+
+        for (int i = 0; i < equipo.size(); i++){
+            auxVida[i] = equipo.get(i).getVida();
+        }
+
         añadirRival(rival,personajes);
 
         SacarMensaje.sacarVentana("Siguiendo tu aventura te encuentras a otro rival\nTe enfrentarás contra: "+rival.get(0).getNombre());
 
     do{
-        auxVida[nroSubdito]=equipo.get(nroSubdito).getVida();
 
         do{
             int op_eq=equipo.get(nroSubdito).movimientos(1);
@@ -90,10 +94,11 @@ public class BatallaPreBoss{
         /*AQUI LLAMAR AL METODO PARA REINICIAR VIDA Y ENERGÍA
         * */
 
-        Libreria.reiniciarVidas(equipo,auxVida);
 
 
     }while(equipo.size()>nroSubdito && rival.get(0).getVida()>0);
+
+    Libreria.reiniciarVidas(equipo,auxVida);
 
     if(rival.get(0).getVida()>0){
         do {

@@ -90,7 +90,7 @@ public class Minijuego {
         }while(nPartidas<3);
         SacarMensaje.sacarVentana("Has ganado " + pGanadas + " partidas");
 
-        switch (nPartidas){
+        switch (pGanadas){
             case 0:
                 SacarMensaje.sacarVentana("Loki te ha bajado las defensas de tus súbditos en un 5%");
                 for(Subditos elemento: equipo){

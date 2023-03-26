@@ -1,6 +1,8 @@
 package Personajes;
 
 import Datos.Libreria;
+import com.nicosteuerberg.datos.SacarMensaje;
+
 import java.util.ArrayList;
 
 public class Subditos extends Personajes{
@@ -77,14 +79,25 @@ public class Subditos extends Personajes{
             lista.get(i).setVelocidad(aVelocidad);
             lista.get(i).setNivel(aNivel);
         }
+
+        if(lista.size()<5) {
+            String texto = "";
+            for (Subditos elemento : lista) {
+                texto = texto + elemento.toString() + "\n";
+            }
+            SacarMensaje.sacarVentana("Has subido de nivel, estas son las nuevas estadísticas:\n" + texto);
+        }
     }
 
     public static void evolucionar(ArrayList<Subditos> lista){
+        String texto = "";
         for (int i=0; i < lista.size(); i++){
             lista.get(i).setAtaque(lista.get(i).getAtaque()+20);
             lista.get(i).setDefensa(lista.get(i).getDefensa()+20);
             lista.get(i).setVelocidad(lista.get(i).getVelocidad()+20);
+            texto = texto + lista.get(i).toString() + "\n";
         }
+        SacarMensaje.sacarVentana("Tus súbditos han evolucionado, estas son las nuevas estadísticas:\n" + texto);
     }
 
     public int getNivel() {

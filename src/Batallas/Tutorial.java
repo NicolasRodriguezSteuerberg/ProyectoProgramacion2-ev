@@ -86,6 +86,7 @@ public class Tutorial {
 
            }
        }while(equipo.get(0).getVida()>0 && rival.get(0).getVida()>0);
+
         Libreria.reiniciarVida(equipo,0,auxVida);
 
         if(rival.get(0).getVida()>0){

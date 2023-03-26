@@ -18,7 +18,6 @@ public class Infierno {
     public static void subirNiveles(ArrayList<Subditos> equipo, ArrayList<Subditos> personajes){
         Subditos.subirNivel(equipo);
         Subditos.subirNivel(personajes);
-        SacarMensaje.sacarVentana("Felicidades has subido de nivel");
     }
 
     public static void infierno(){
@@ -100,8 +99,7 @@ public class Infierno {
 
         //final infierno
         SacarMensaje.sacarVentana("Enhorabuena has ganado a todos los infernales y has conseguido\n"+
-                "suficiente poder, por lo que has evolucionado a Princesa Demonio.\n"+
-                "Tus súbditos han evolucionado ganando mucho poder.");
+                "suficiente poder, por lo que has evolucionado a Princesa Demonio.");
 
         /*Futuras actualizaciones
         SacarMensaje.sacarVentana("Todos los infernales quieren estar en tu equipo pero solo puedes tener 4.\n"+

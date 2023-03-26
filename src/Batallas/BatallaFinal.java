@@ -21,6 +21,7 @@ public class BatallaFinal {
     }
 
     public static void calcularAtqRiv(ArrayList<Subditos>equipo, ArrayList<Bosses>boss, int nroSubdito,int nroBoss, int op_riv){
+        SacarMensaje.sacarVentana(boss.get(nroBoss).getMensaje());
         int atqRiv = (int) ((2.55 * (op_riv / (equipo.get(nroSubdito).getDefensa() * 25) + 2)) / equipo.get(nroSubdito).getResistenciaAtaque());
         equipo.get(nroSubdito).setVida(equipo.get(nroSubdito).getVida() - atqRiv);
     }
@@ -54,8 +55,8 @@ public class BatallaFinal {
         int numero = Libreria.numeroRandom(0,(equipo.size()-1));
         movElegido=boss.get(1).movimientos();
         calcularAtqRiv(equipo,boss,numero,1,movElegido);
-        SacarMensaje.sacarVentana(equipo.get(numero).getVida() + "PS");
-        SacarMensaje.sacarVentana(equipo.get(numero).getNombre() + " ha muerto por las trampas de Loki");
+        SacarMensaje.sacarVentana("Loki el tramposo ha atacado ha " + equipo.get(numero).getNombre() + " ha quedado a" + equipo.get(numero).getVida() + "PS\n" +
+                "Por lo que: " + equipo.get(numero).getNombre() + " ha muerto");
 
         //empieza la verdadera pelea
         do{
@@ -92,7 +93,7 @@ public class BatallaFinal {
             for(int nroBoss = 0; nroBoss < boss.size(); nroBoss++){
                 if (boss.get(nroBoss).getVida()>0) {
                     movElegido = boss.get(nroBoss).movimientos();
-                    SacarMensaje.sacarVentana(boss.get(nroBoss).getMensaje());
+
 
                     //si alguien se defiende
                     if (flagD == 1) {

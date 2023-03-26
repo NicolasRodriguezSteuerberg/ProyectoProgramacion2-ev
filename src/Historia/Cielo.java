@@ -22,7 +22,7 @@ public class Cielo {
         //Solo en esta version
         SacarMensaje.sacarVentana("Antes de encontrar al primer dios se encuentra a un Ángel que le reta al piedra papel o tijera.\n"+
                 "A Nina no le queda más opción que aceptar ya que le ofrece recompensas");
-        //Minijuego.piedraPapelTijera();
+        Minijuego.piedraPapelTijera(equipo);
         SacarMensaje.sacarVentana("En el cielo se encuentra a sus antiguos alumnos, estos resentidos de la injusticia pasada le desafian a una pelea.\n" +
                 "Ellos le hacen prometer que si pierde tiene que volver a darles clase y corregirles el trabajo.");
         BatallaFinal.batallaBoss(equipo);
