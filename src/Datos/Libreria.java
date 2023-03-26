@@ -37,7 +37,7 @@ public class Libreria {
 
 
     // Instrucciones
-    public static void Instrucciones(){
+    public static void instrucciones(){
         String [] opciones = {"Objetivo","Movimientos","Diferencia entre personajes", "Salir"};
         String [] opciones2 = {"Si","No"};
         int opcion;

@@ -5,9 +5,7 @@ import Datos.Libreria;
 import Historia.Final;
 import Personajes.Bosses;
 import Personajes.Subditos;
-import com.nicosteuerberg.datos.PedirDatos;
 import com.nicosteuerberg.datos.SacarMensaje;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -49,6 +47,7 @@ public class BatallaFinal {
             }
         }
 
+        Libreria.audioP(4);
 
         //ataque Loki
         SacarMensaje.sacarVentana("Loki el tramposo ataca sin que te de tiempo a reaccionar");

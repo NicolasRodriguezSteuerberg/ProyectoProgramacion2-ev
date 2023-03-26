@@ -13,7 +13,7 @@ public class Main {
                     Inicio.comienzo();
                     break;
                 case 1:
-                    Libreria.Instrucciones();
+                    Libreria.instrucciones();
                     break;
                 case 2:
                     SacarMensaje.sacarVentana("Saliendo del programa...");
