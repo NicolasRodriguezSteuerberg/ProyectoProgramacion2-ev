@@ -51,7 +51,7 @@ public class Libreria {
                     opcion2 = SacarMensaje.pedirOpciones("¿Quieres saber algo más del juego?",opciones2);
                     break;
                 case 1:
-                    SacarMensaje.sacarVentana("Hay 3 movimientos en este juego:\n1->Atacar: es un ataque débil que hace daño al enemigo. Sube la energia en 1\n2->Defenderse: esto te permite que el ataque recibido sea menor. Sube la energia en 1\n3->Movimiento especial: es un ataque fuerte y único por cada elemento que solo se puede hacer cuando tienes 3 de energia. Energia inicial=1. Al realizarlo tu energia pasa a ser 1");
+                    SacarMensaje.sacarVentana("Hay 3 movimientos en este juego:\n1->Atacar: es un ataque débil que hace daño al enemigo. Sube la energia en 1\n2->Defenderse: esto te permite que el ataque recibido sea menor. En la batalla contra bosses, estos si te defiendes solo atacan a estos. Sube la energia en 1\n3->Movimiento especial: es un ataque fuerte y único por cada elemento que solo se puede hacer cuando tienes 3 de energia. Energia inicial=1. Al realizarlo tu energia pasa a ser 1");
                     opcion2 = SacarMensaje.pedirOpciones("¿Quieres saber algo más del juego?",opciones2);
                     break;
                 case 2:
