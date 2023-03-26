@@ -30,6 +30,8 @@ public class BatallaBoss {
         int flag, flagD, opc;
         int auxVidas[]=new int [equipo.size()];
         int auxVidaBoss = boss.get(nroBoss).getVida();
+        SacarMensaje.sacarVentana(boss.get(nroBoss).getNombre() + " tiene algo que decirte antes de la pelea:");
+        Libreria.audioP(nroBoss);
 
         for(int i=0;i<equipo.size();i++){
             auxVidas[i]=equipo.get(i).getVida();
@@ -45,6 +47,7 @@ public class BatallaBoss {
                 if(equipo.get(i).getVida()>0 && boss.get(nroBoss).getVida()>0){
                     movElegido=equipo.get(i).movimientos(1);
                     if(movElegido==0){
+                        SacarMensaje.sacarVentana(equipo.get(i).getMensaje());
                         flagD=1;
                     }else {
                         calcularAtqEq(equipo, boss, i, nroBoss, movElegido);
@@ -100,7 +103,7 @@ public class BatallaBoss {
 
         Libreria.reiniciarVidas(equipo,auxVidas);
 
-        if(boss.get(0).getVida()>0){
+        if(boss.get(nroBoss).getVida()>0){
             do {
                 try {
                     opc = PedirDatos.getInt("Lo siento. Has perdido..." + "\n" +
@@ -121,7 +124,7 @@ public class BatallaBoss {
                 }
             }while(opc>2 || opc<1);
         }else{
-            SacarMensaje.sacarVentana("Buen trabajo, has ganado la batalla.\n" + boss.get(0).getNombre() + " (rival) ha muerto");
+            SacarMensaje.sacarVentana("Buen trabajo, has ganado la batalla.\n" + boss.get(nroBoss).getNombre() + " (rival) ha muerto");
         }
 
     }

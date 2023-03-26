@@ -20,5 +20,7 @@ public class Main {
                     break;
             }
         }while(numero==1);
+
+
     }
 }

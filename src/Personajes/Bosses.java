@@ -27,7 +27,7 @@ public class Bosses extends Personajes{
 
         if(energia<3){
             mensaje = nombre + " ha atacado";
-            referencia = 15 * ataque;
+            referencia = 30 * ataque;
             energia++;
         }
 
@@ -37,12 +37,10 @@ public class Bosses extends Personajes{
                 referencia = ataque * Libreria.numeroRandom(80,110);
             }
             else{
-                if(nombre.equalsIgnoreCase("Poseidón")){
-                    mensaje = nombre + " ha usado Maremoto";
-                } else if(nombre.equalsIgnoreCase("Hera")){
+                if(nombre.equalsIgnoreCase("Hera")){
                     mensaje = nombre + " ha usado ataque de celos divino";
                 } else if (nombre.equalsIgnoreCase("Loki")) {
-                    mensaje = nombre + " ha usado Mentira divina";
+                    mensaje = nombre + " ha usado Trampa divina";
                 }
                 referencia = ataque * Libreria.numeroRandom(90,110);
             }

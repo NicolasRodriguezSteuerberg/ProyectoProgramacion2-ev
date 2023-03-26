@@ -1,7 +1,4 @@
 Damian, infernal, bajo, 80, 10, 10, 8, 1, 0, 1
-Maria, infernal, medio, 180, 22, 15, 16, 1, 0, 1
-Ricardo, infernal, medio, 280, 34, 20, 24, 1, 0, 1
-Manuel, infernal, alto, 400, 46, 30, 32, 1, 0, 1
-Poseidon, dios, agua, 500, 60, 50, 52, 1, 0, 2
-Hera, diosa, amor, 600, 65, 60, 60, 1, 0, 2
-Loki, dios, trampa, 700, 70, 70, 900, 1, 0, 2
+Maria, infernal, medio, 180, 24, 15, 16, 1, 0, 1
+Elisa, infernal, medio, 280, 36, 20, 24, 1, 0, 1
+Manuel, infernal, alto, 400, 48, 30, 32, 1, 0, 1

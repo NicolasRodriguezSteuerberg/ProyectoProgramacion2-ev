@@ -79,6 +79,14 @@ public class Subditos extends Personajes{
         }
     }
 
+    public static void evolucionar(ArrayList<Subditos> lista){
+        for (int i=0; i < lista.size(); i++){
+            lista.get(i).setAtaque(lista.get(i).getAtaque()+20);
+            lista.get(i).setDefensa(lista.get(i).getDefensa()+20);
+            lista.get(i).setVelocidad(lista.get(i).getVelocidad()+20);
+        }
+    }
+
     public int getNivel() {
         return nivel;
     }

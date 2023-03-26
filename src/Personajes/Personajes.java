@@ -85,7 +85,7 @@ public class Personajes {
                     energia++;
                 }
                 mensaje = nombre + " se está defendiendo";
-                resistenciaAtaque = 1.5f;
+                resistenciaAtaque = 1.25f;
                 referencia = 0;
                 break;
             case 2:

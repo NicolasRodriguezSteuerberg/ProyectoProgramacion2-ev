@@ -62,9 +62,8 @@ public class Infierno {
                 "que luchar contra Infernales de alto rango. De esta manera se encuentra a su primer enemigo.");
 
         Tutorial.primeraBatalla(equipo,rivales,personajes);
-        BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
-
         subirNiveles(equipo,personajes);
+        BatallaPreBoss.batallaNormal(equipo,rivales,personajes);
 
         Libreria.añadirIntegrante(equipo,personajes);
 
@@ -97,22 +96,22 @@ public class Infierno {
 
         BatallaBoss.batallaBoss(equipo,bosses,3);
 
-        subirNiveles(equipo,personajes);
+        Subditos.evolucionar(equipo);
 
         //final infierno
         SacarMensaje.sacarVentana("Enhorabuena has ganado a todos los infernales y has conseguido\n"+
                 "suficiente poder, por lo que has evolucionado a Princesa Demonio.\n"+
                 "Tus súbditos han evolucionado ganando mucho poder.");
 
+        /*Futuras actualizaciones
         SacarMensaje.sacarVentana("Todos los infernales quieren estar en tu equipo pero solo puedes tener 4.\n"+
                 "Debes formar tu equipo para ponerte en marcha hacia el Cielo, en esta\n"+
                 "etapa lucharás contra los dioses para lograr tu sueño");
 
-        /**ToDo
-         * Cambio de equipo
+         Cambio de equipo
          */
 
-        Cielo.cielo(equipo,bosses);
+        Cielo.cielo(equipo);
 
 
     }

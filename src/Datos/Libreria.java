@@ -2,6 +2,10 @@ package Datos;
 
 import Personajes.Subditos;
 import com.nicosteuerberg.datos.SacarMensaje;
+import javazoom.jl.player.Player;
+
+import java.io.*;
+
 
 import java.util.ArrayList;
 
@@ -58,7 +62,6 @@ public class Libreria {
         }while(opcion2==0);
     }
 
-
     // "Reiniciar estadisticas"
     public static void reiniciarVida(ArrayList<Subditos>equipo, int nroSubdito,int auxvida){
         equipo.get(nroSubdito).setVida(auxvida);
@@ -75,13 +78,33 @@ public class Libreria {
     public static void añadirIntegrante(ArrayList<Subditos> equipo,ArrayList<Subditos> personajes){
         int numero;
         numero = Libreria.numeroRandom(0,(personajes.size()-1));
-        for(int i=0;i<equipo.size();i++){
-            if(personajes.get(numero).getNombre().equals(equipo.get(i).getNombre())){
-                numero = Libreria.numeroRandom(0,(personajes.size()-1));
-                i = 0;
+        if(equipo.size()==1){
+            if(equipo.get(0).getTipo().equalsIgnoreCase(personajes.get(numero).getTipo())){
+                do{
+                    numero = Libreria.numeroRandom(0,(personajes.size()-1));
+                }while(equipo.get(0).getTipo().equalsIgnoreCase(personajes.get(numero).getTipo()));
+            }
+        }
+        else {
+            for (int i = 0; i < equipo.size(); i++) {
+                if (personajes.get(numero).getNombre().equals(equipo.get(i).getNombre())) {
+                    numero = Libreria.numeroRandom(0, (personajes.size() - 1));
+                    i = 0;
+                }
             }
         }
         equipo.add(new Subditos(personajes.get(numero).getNombre(),personajes.get(numero).getElemento(),personajes.get(numero).getTipo(),personajes.get(numero).getVida(),personajes.get(numero).getAtaque(),personajes.get(numero).getDefensa(),personajes.get(numero).getVelocidad(),personajes.get(numero).getResistenciaAtaque(),1,"",personajes.get(numero).getNivel()));
         SacarMensaje.sacarVentana("Tu fama ha aumentado, por lo que " + equipo.get(equipo.size()-1).getNombre() + " se ha unido a tu equipo:\n" + equipo.get(equipo.size()-1).toString());
+    }
+
+    public static void audioP(int numero){
+        String nombreAudio = numero+".mp3";
+        try {
+            FileInputStream fis = new FileInputStream(nombreAudio);
+            Player playMP3 = new Player(fis);
+            playMP3.play();
+        }catch (Exception e){
+
+        }
     }
 }
