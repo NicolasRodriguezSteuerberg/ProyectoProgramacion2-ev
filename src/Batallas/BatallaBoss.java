@@ -30,14 +30,13 @@ public class BatallaBoss {
         int flag, flagD, opc;
         int auxVidas[]=new int [equipo.size()];
         int auxVidaBoss = boss.get(nroBoss).getVida();
-        SacarMensaje.sacarVentana(boss.get(nroBoss).getNombre() + " tiene algo que decirte antes de la pelea:");
-        Libreria.audioP(nroBoss);
 
         for(int i=0;i<equipo.size();i++){
             auxVidas[i]=equipo.get(i).getVida();
         }
-        SacarMensaje.sacarVentana("Ha llegado la hora. Estas preparado para enfrentarte a: "+boss.get(nroBoss).getNombre());
-
+        SacarMensaje.sacarVentana("Has avanzado lo suficiente, ha llegado la hora de pelear contra un infernal.\n" +
+                "Pero no cualquier infernal, veamos si logras reconocerlo por la voz, ya que tiene algo que comentarte");
+        Libreria.audioP(nroBoss);
         do{
             flag=0;
             flagD=0;
