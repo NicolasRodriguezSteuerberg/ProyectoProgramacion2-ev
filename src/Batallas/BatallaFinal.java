@@ -35,10 +35,6 @@ public class BatallaFinal {
         int flag, flagD, movElegido, bossAtacado;
         String opcionesAtaques[] = {boss.get(0).getNombre(), boss.get(1).getNombre()};
 
-        /* Poner audio nico + foto gabri
-        SacarMensaje.sacarVentana(boss.get(nroBoss).getNombre() + " tiene algo que decirte antes de la pelea:");
-        Libreria.audioP(nroBoss);
-        */
 
         //reiniciar la resistencia al ataque
         for(int i = 0; i < equipo.size(); i++){
